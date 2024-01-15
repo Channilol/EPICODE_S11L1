@@ -24,7 +24,7 @@ const mainReducer = (
                 ...state,
                 jobsStates: {
                     ...state.jobsStates,
-                    favourites: state.jobsStates.favourites.filter((favourite, i) => i !== action.payload)
+                    favourites: state.jobsStates.favourites.filter(favourite => favourite !== action.payload)
                 }
             }
         case 'UPDATE_SEARCH':

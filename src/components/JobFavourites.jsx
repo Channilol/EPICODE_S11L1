@@ -18,6 +18,7 @@ const JobFavourites = ({ data }) => {
           type: 'REMOVE_FROM_FAVOURITES',
           payload: data
         })
+        alert('Rimosso dai preferiti')
       }}/>
     </Col>
     <Col xs={3}>

@@ -2,9 +2,11 @@ import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Star from '../assets/image/star-svgrepo-com.svg'
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Job = ({ data }) => {
   const dispatch = useDispatch()
+  const state = useSelector((state) => state.jobsStates)
 
   return(
     <Row
@@ -13,10 +15,15 @@ const Job = ({ data }) => {
   >
     <Col xs={1}>
       <img src={Star} alt='star' onClick={() => {
-        dispatch({
-          type: 'ADD_TO_FAVOURITES',
-          payload: data
-        })
+        if (!state.favourites.includes(data)) {
+          dispatch({
+            type: 'ADD_TO_FAVOURITES',
+            payload: data
+          })
+          alert('Aggiunto ai preferiti')
+        } else {
+          alert('È già stato aggiunto nei preferiti')
+        }
       }}/>
     </Col>
     <Col xs={3}>

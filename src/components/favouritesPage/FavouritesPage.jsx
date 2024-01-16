@@ -15,9 +15,9 @@ const FavouritesPage = () => {
 
     return(
         <>
-        <Container className='mx-auto'>
+        <Container>
             <Row>
-                <Col xs={10} className='mt-3'>
+                <Col xs={10} className='my-3 mx-auto'>
                     <h1>Favourites page | <Link to='/'>Back to search</Link></h1>
                 </Col>
             </Row>
@@ -26,7 +26,11 @@ const FavouritesPage = () => {
                     return <Job key={job._id} data={job} />
                 })
             ) : (
-                <Spinner animation="border" className='mt-3'/>
+                <Row>
+                    <Col xs={10} className='my-3 mx-auto'>
+                        <Spinner animation="border"/>
+                    </Col>
+                </Row>
             )}
         </Container>
         </>
